@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import SignUpScreen from './screens/SignUpScreen';
+import ForgotPasswordScreen from './screens/ForgotPasswordScreen';
 import PublicSignupScreen from './screens/PublicSignupScreen';
 import UserDashboardScreen from './screens/UserDashboardScreen';
 import MetricsDashboardScreen from './screens/MetricsDashboardScreen';
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="/login" element={<LoginScreen />} />
+          <Route path="/forgot-password" element={<ForgotPasswordScreen />} />
           <Route path="/signup" element={<PublicSignupScreen />} />
           <Route path="/clinician-signup" element={<SignUpScreen />} />
           <Route path="/my-dashboard" element={<UserDashboardScreen />} />

@@ -45,8 +45,27 @@ export const AuthProvider = ({ children }) => {
         return supabase.auth.signOut();
     };
 
+    // HIPAA Audit Helper
+    const logAudit = async (action, details = {}) => {
+        // Option A: Call Edge Function (Preferred for security)
+        // await supabase.functions.invoke('log-hipaa-ack', { ... }) 
+
+        // Option B: Direct Insert (if RLS allows or strictly for non-critical logs)
+        // For compliance, we usually want server-side timestamps. 
+        // Here we just wrap the call for the frontend to use.
+        try {
+            await supabase.from('audit_logs').insert([{
+                action,
+                details,
+                user_id: user?.id
+            }]);
+        } catch (e) {
+            console.error("Audit Log Failed:", e);
+        }
+    };
+
     return (
-        <AuthContext.Provider value={{ user, login, signup, logout, loading }}>
+        <AuthContext.Provider value={{ user, login, signup, logout, logAudit, loading }}>
             {!loading ? children : <div className="h-screen flex items-center justify-center"><Spin size="large" /></div>}
         </AuthContext.Provider>
     );

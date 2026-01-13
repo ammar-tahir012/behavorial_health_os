@@ -36,7 +36,7 @@ const LoginScreen = () => {
                 </div>
 
                 <Alert
-                    message="HIPAA Compliance Notice"
+                    title="HIPAA Compliance Notice"
                     description="This system contains Protected Health Information (PHI). access is restricted to authorized personnel only."
                     type="warning"
                     showIcon
@@ -63,6 +63,12 @@ const LoginScreen = () => {
                     >
                         <Input.Password prefix={<LockOutlined />} placeholder="Password" />
                     </Form.Item>
+
+                    <div className="flex justify-end mb-4">
+                        <Link to="/forgot-password" className="text-sm text-primary hover:underline">
+                            Forgot Password?
+                        </Link>
+                    </div>
 
                     <Form.Item>
                         <Button type="primary" htmlType="submit" className="w-full bg-primary" loading={loading}>

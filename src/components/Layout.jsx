@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Layout as AntLayout, Menu, Button, Avatar, Dropdown } from 'antd';
+import { Layout as AntLayout, Menu, Button, Avatar, Dropdown, message } from 'antd';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import {
     AppstoreOutlined,
     TeamOutlined,
@@ -20,6 +21,7 @@ const { Header, Sider, Content } = AntLayout;
 
 const Layout = () => {
     const [collapsed, setCollapsed] = useState(false);
+    const { user, logout } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -34,12 +36,22 @@ const Layout = () => {
         { key: '/settings', icon: <SettingOutlined />, label: 'Settings' },
     ];
 
+    const handleLogout = async () => {
+        const { error } = await logout();
+        if (error) {
+            message.error(error.message);
+        } else {
+            message.success('Logged out successfully');
+            navigate('/login');
+        }
+    };
+
     const userMenu = (
         <Menu>
             <Menu.Item key="profile" icon={<UserOutlined />} onClick={() => navigate('/settings')}>
                 Profile
             </Menu.Item>
-            <Menu.Item key="logout" icon={<LogoutOutlined />} onClick={() => navigate('/login')}>
+            <Menu.Item key="logout" icon={<LogoutOutlined />} onClick={handleLogout}>
                 Logout
             </Menu.Item>
         </Menu>
@@ -72,9 +84,11 @@ const Layout = () => {
                         className="text-lg w-16 h-16"
                     />
                     <div className="flex items-center gap-4">
-                        <span className="text-gray-600">Dr. Sarah Smith</span>
+                        <span className="text-gray-600 font-medium whitespace-nowrap">
+                            {user?.user_metadata?.full_name || user?.email || 'User'}
+                        </span>
                         <Dropdown overlay={userMenu} placement="bottomRight">
-                            <Avatar icon={<UserOutlined />} className="bg-primary cursor-pointer" />
+                            <Avatar icon={<UserOutlined />} className="bg-primary cursor-pointer shadow-sm" />
                         </Dropdown>
                     </div>
                 </Header>
