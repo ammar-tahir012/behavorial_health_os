@@ -10,6 +10,8 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { analytics } from '../utils/analytics';
 import logo from '../assets/logo_primary.jpg';
+import dashboardPreview from '../assets/dashboard_preview.png';
+import clinicianPreview from '../assets/clinician_preview.png';
 
 
 const HomeScreen = () => {
@@ -152,19 +154,31 @@ const HomeScreen = () => {
                                 ))}
                             </ul>
                         </div>
-                        <div className="order-1 lg:order-2 bg-gradient-to-br from-primary/20 via-primary/5 to-surface rounded-[3rem] p-12 h-[500px] flex items-center justify-center border border-white/5 relative group">
+                        <div className="order-1 lg:order-2 bg-gradient-to-br from-primary/20 via-primary/5 to-surface rounded-[3rem] h-[500px] flex items-center justify-center border border-white/5 relative group overflow-hidden">
                             <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full group-hover:bg-primary/10 transition-colors"></div>
-                            <div className="relative text-text/40 font-bold text-xl uppercase tracking-widest bg-background/40 backdrop-blur-md px-10 py-5 rounded-2xl border border-white/5">
-                                Dashboard Interface
+                            <img
+                                src={dashboardPreview}
+                                alt="Dashboard Interface"
+                                className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                            <div className="relative text-text/90 font-bold text-lg px-8 py-3 rounded-xl bg-background/40 backdrop-blur-xl border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                                Interactive Analytics
                             </div>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                        <div className="bg-gradient-to-br from-secondary/40 via-secondary/5 to-surface rounded-[3rem] p-12 h-[500px] flex items-center justify-center border border-white/5 relative group">
+                        <div className="bg-gradient-to-br from-secondary/40 via-secondary/5 to-surface rounded-[3rem] h-[500px] flex items-center justify-center border border-white/5 relative group overflow-hidden">
                             <div className="absolute inset-0 bg-secondary/10 blur-3xl rounded-full group-hover:bg-secondary/20 transition-colors"></div>
-                            <div className="relative text-text/40 font-bold text-xl uppercase tracking-widest bg-background/40 backdrop-blur-md px-10 py-5 rounded-2xl border border-white/5">
-                                Clinician View
+                            <img
+                                src={clinicianPreview}
+                                alt="Clinician View"
+                                className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                            <div className="relative text-text/90 font-bold text-lg px-8 py-3 rounded-xl bg-background/40 backdrop-blur-xl border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                                Secure Telehealth
                             </div>
                         </div>
                         <div>
