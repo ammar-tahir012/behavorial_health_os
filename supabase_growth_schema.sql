@@ -14,14 +14,8 @@ create table if not exists user_actions (
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
 
--- Create user_feedback table
-create table if not exists user_feedback (
-  id uuid default gen_random_uuid() primary key,
-  sentiment text not null, -- 'positive', 'negative'
-  message text,
-  page_url text,
-  created_at timestamp with time zone default timezone('utc'::text, now()) not null
-);
+
+
 
 -- Create growth_metrics table for daily aggregate tracking
 create table if not exists growth_metrics (

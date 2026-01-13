@@ -33,6 +33,7 @@ function App() {
           <Route path="/" element={<HomeScreen />} />
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/signup" element={<PublicSignupScreen />} />
+          <Route path="/clinician-signup" element={<SignUpScreen />} />
           <Route path="/my-dashboard" element={<UserDashboardScreen />} />
           <Route path="/metrics" element={<MetricsDashboardScreen />} />
 

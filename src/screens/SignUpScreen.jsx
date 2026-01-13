@@ -29,8 +29,8 @@ const SignUpScreen = () => {
         <div className="min-h-screen flex items-center justify-center bg-background p-4">
             <Card className="w-full max-w-md shadow-lg border-t-4 border-t-secondary">
                 <div className="text-center mb-8">
-                    <h1 className="text-2xl font-bold text-text">Create Account</h1>
-                    <p className="text-gray-500 mt-2">Join Behavioral Health OS</p>
+                    <h1 className="text-2xl font-bold text-text">Clinician Registration</h1>
+                    <p className="text-gray-500 mt-2">Join Behavioral Health OS Provider Network</p>
                 </div>
 
                 <Form

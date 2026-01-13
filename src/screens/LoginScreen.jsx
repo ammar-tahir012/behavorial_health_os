@@ -72,7 +72,7 @@ const LoginScreen = () => {
                 </Form>
 
                 <div className="text-center mt-4">
-                    Don't have an account? <Link to="/signup" className="text-primary hover:underline">Sign up</Link>
+                    Don't have an account? <Link to="/clinician-signup" className="text-primary hover:underline">Clinician Sign up</Link>
                 </div>
 
                 <div className="text-center text-sm text-gray-400 mt-6">

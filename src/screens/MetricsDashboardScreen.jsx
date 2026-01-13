@@ -29,7 +29,7 @@ const MetricsDashboardScreen = () => {
             bio_clicks: 65,       // 5.2% rate
             signups: 45,          // +50% vs 30
             returned_users: 15,   // 33% retention
-            feedback_sentiment: 'positive',
+
             skepticism_count: 0
         };
 

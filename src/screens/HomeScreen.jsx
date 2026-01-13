@@ -9,7 +9,7 @@ import {
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { analytics } from '../utils/analytics';
-import FeedbackWidget from '../components/FeedbackWidget';
+
 
 const HomeScreen = () => {
     const navigate = useNavigate();
@@ -215,7 +215,7 @@ const HomeScreen = () => {
                         <p className="text-gray-500 text-sm">© 2026 HealthOS. All rights reserved.</p>
                         <div className="flex items-center gap-4">
                             <span className="text-gray-500 text-sm flex items-center gap-1">
-                                <FeedbackWidget pageContext="home_footer" />
+
                             </span>
                             <span className="text-gray-500 text-sm flex items-center gap-1">
                                 <SafetyCertificateOutlined /> Secure & Encrypted

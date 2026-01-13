@@ -3,7 +3,7 @@ import { Button, Card, Progress, Statistic, Row, Col, message } from 'antd';
 import { CheckCircleOutlined, FireOutlined, BookOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { analytics } from '../utils/analytics';
-import FeedbackWidget from '../components/FeedbackWidget';
+
 import { supabase } from '../supabaseClient';
 
 const UserDashboardScreen = () => {
@@ -96,7 +96,7 @@ const UserDashboardScreen = () => {
                     ))}
                 </div>
 
-                <FeedbackWidget pageContext="user_dashboard" />
+
 
                 <div className="text-center mt-12">
                     <Button type="link" danger onClick={() => {
