@@ -16,6 +16,8 @@ import {
     LogoutOutlined,
     FileTextOutlined
 } from '@ant-design/icons';
+import logo from '../assets/logo.jpg';
+
 
 const { Header, Sider, Content } = AntLayout;
 
@@ -58,41 +60,49 @@ const Layout = () => {
     );
 
     return (
-        <AntLayout className="h-screen">
-            <Sider trigger={null} collapsible collapsed={collapsed} className="bg-white border-r border-border" theme="light" width={250}>
-                <div className="flex items-center justify-center py-6 border-b border-border">
-                    {!collapsed ? (
-                        <h1 className="text-xl font-bold text-primary">HealthOS</h1>
-                    ) : (
-                        <h1 className="text-xl font-bold text-primary">H</h1>
-                    )}
+        <AntLayout className="h-screen bg-background text-text">
+            <Sider
+                trigger={null}
+                collapsible
+                collapsed={collapsed}
+                className="bg-secondary border-r border-border"
+                theme="dark"
+                width={250}
+            >
+                <div className="flex items-center justify-center py-6 border-b border-border overflow-hidden">
+                    <img
+                        src={logo}
+                        alt="BHAOS Logo"
+                        className={`transition-all duration-300 mix-blend-screen brightness-110 contrast-125 ${collapsed ? 'h-12 w-12' : 'h-28 w-auto'}`}
+                    />
                 </div>
                 <Menu
+                    theme="dark"
                     mode="inline"
                     selectedKeys={[location.pathname]}
                     items={items}
                     onClick={({ key }) => navigate(key)}
-                    className="border-none mt-2"
+                    className="border-none mt-2 bg-transparent"
                 />
             </Sider>
-            <AntLayout>
-                <Header className="bg-white px-4 border-b border-border flex items-center justify-between" style={{ background: '#fff' }}>
+            <AntLayout className="bg-background">
+                <Header className="bg-surface px-4 border-b border-border flex items-center justify-between h-16">
                     <Button
                         type="text"
                         icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
                         onClick={() => setCollapsed(!collapsed)}
-                        className="text-lg w-16 h-16"
+                        className="text-lg w-10 h-10 flex items-center justify-center text-text hover:text-primary transition-colors"
                     />
                     <div className="flex items-center gap-4">
-                        <span className="text-gray-600 font-medium whitespace-nowrap">
+                        <span className="text-text font-medium whitespace-nowrap opacity-90">
                             {user?.user_metadata?.full_name || user?.email || 'User'}
                         </span>
                         <Dropdown overlay={userMenu} placement="bottomRight">
-                            <Avatar icon={<UserOutlined />} className="bg-primary cursor-pointer shadow-sm" />
+                            <Avatar icon={<UserOutlined />} className="bg-primary cursor-pointer shadow-md" />
                         </Dropdown>
                     </div>
                 </Header>
-                <Content className="m-4 p-6 bg-white rounded-lg shadow-sm overflow-auto">
+                <Content className="m-4 p-6 bg-surface rounded-lg shadow-xl overflow-auto border border-border">
                     <Outlet />
                 </Content>
             </AntLayout>

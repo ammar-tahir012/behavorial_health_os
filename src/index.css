@@ -6,5 +6,5 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  @apply bg-background text-text;
+  @apply bg-background text-text min-h-screen;
 }

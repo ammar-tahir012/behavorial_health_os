@@ -125,12 +125,12 @@ const PatientsScreen = () => {
                 <Button type="primary" icon={<PlusOutlined />}>Add Patient</Button>
             </div>
 
-            <Card className="shadow-sm flex-1">
+            <Card className="shadow-2xl flex-1 bg-surface border-border">
                 <div className="mb-4 flex gap-4">
                     <Input
-                        prefix={<SearchOutlined />}
+                        prefix={<SearchOutlined className="text-text/40" />}
                         placeholder="Search by name, ID, or diagnosis"
-                        className="max-w-md"
+                        className="max-w-md bg-background border-border text-text placeholder:text-text/30 h-10"
                         value={searchText}
                         onChange={e => setSearchText(e.target.value)}
                     />
@@ -139,7 +139,7 @@ const PatientsScreen = () => {
                     columns={columns}
                     dataSource={data}
                     pagination={{ pageSize: 8 }}
-                    className="overflow-hidden"
+                    className="overflow-hidden theme-dark-table"
                 />
             </Card>
         </div>
